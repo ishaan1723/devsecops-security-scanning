@@ -1,7 +1,11 @@
 import subprocess
 
-def run_command(user_input):
-    subprocess.call(user_input, shell=True)
 
-user_input = input("Enter command: ")
-run_command(user_input)
+def run_command():
+    subprocess.run(
+        ["python", "--version"],
+        check=True
+    )
+
+
+run_command()
