@@ -12,4 +12,6 @@ provider "aws" {
 
 resource "aws_s3_bucket" "lab_bucket" {
   bucket = "terraform-iac-lab-ishaan-2026"
+
+  acl = "public-read"
 }
