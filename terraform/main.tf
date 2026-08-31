@@ -68,3 +68,16 @@ resource "aws_s3_bucket_policy" "lab_bucket" {
     ]
   })
 }
+
+# Logging bucket
+resource "aws_s3_bucket" "logs" {
+  bucket = "terraform-iac-logs-ishaan-2026"
+}
+
+# Enable server access logging
+resource "aws_s3_bucket_logging" "lab_bucket" {
+  bucket = aws_s3_bucket.lab_bucket.id
+
+  target_bucket = aws_s3_bucket.logs.id
+  target_prefix = "s3-access-logs/"
+}
